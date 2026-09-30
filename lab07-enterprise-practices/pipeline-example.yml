@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 biro98
+# SPDX-License-Identifier: MIT
+
+name: Lab 07 Terraform CI
+
+# Static CI needs no Azure access or variable values. Any future authenticated
+# plan/apply needs a dedicated TF_VAR_resource_group_name, TF_VAR_location,
+# TF_VAR_unique_suffix and one controlled state that owns the group lifecycle.
+# GitHub-hosted runners need OIDC, not the workshop VM's MSI environment.
+
+# TODO 1: Run for pull requests that change Lab 07 files.
+# Also allow an instructor to run the workflow manually.
+on:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: lab07-enterprise-practices
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.14.5"
+          terraform_wrapper: false
+
+      # TODO 2: Add a named step that runs terraform fmt -check -recursive.
+
+      # TODO 3: Add a named step that initializes without a backend.
+
+      # TODO 4: Add a named step that runs terraform validate.

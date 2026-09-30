@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 biro98
+# SPDX-License-Identifier: MIT
+
+resource_group_name    = "rg-tf-lab07-ref07"
+location               = "swedencentral"
+unique_suffix          = "ref07"
+management_source_cidr = "10.200.0.0/24"

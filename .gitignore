@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 biro98
+# SPDX-License-Identifier: MIT
+
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfplan.json
+.terraform.lock.hcl
+terraform.tfvars
+backend.hcl
+*.tfbackend
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Instructor solutions and publishing tools stay local.
+/lab*/solution/
+/scripts/Publish-LabSolution.ps1
+/scripts/solution-files.json
+
+# Private deployment artifacts (including legacy rosters) must never be committed.
+/scripts/workshop-vm/private/
+attendees*.csv
+*.private.csv
+*.private.json
+/scripts/workshop-vm/*.generated.json

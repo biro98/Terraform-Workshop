@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2026 biro98
+# SPDX-License-Identifier: MIT
+
+resource_group_name  = "rg-workshop-platform"
+storage_account_name = "<storage-account-from-generated-vm-config>"
+container_name       = "tfstate"
+tenant_id            = "<ARM_TENANT_ID-from-VM>"
+subscription_id      = "<ARM_SUBSCRIPTION_ID-from-VM>"
+key                  = "lab05.tfstate"
+use_azuread_auth     = true
+use_msi              = true

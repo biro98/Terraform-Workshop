@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 biro98
+# SPDX-License-Identifier: MIT
+
+unique_suffix       = "u01"
+resource_group_name = "rg-tf-lab02-u01"
+location            = "eastus"
+vnet_name           = "vnet-tf-lab02-u01"
+vnet_address_space  = "10.2.0.0/16"
+subnet_name         = "snet-application"
+subnet_prefix       = "10.2.1.0/24"
