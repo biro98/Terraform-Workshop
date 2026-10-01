@@ -225,8 +225,10 @@ DNS zone names inside a shared resource group.
 | [terraform.tfvars.example](terraform.tfvars.example) | Non-secret example inputs; copy once |
 | [terraform.tf](terraform.tf) / [providers.tf](providers.tf) | Version and authentication configuration |
 
-The instructor's `solution/` reference remains separate from the starter release.
-Do not deploy both roots against the same group.
+The complete [reference solution and optional tests](solution/README.md) are
+published in `solution/`. Complete the walkthrough before comparing with it.
+The solution is an independent Terraform root/state, not an extension of the
+starter. Do not deploy both roots against the same group.
 
 ## References
 
