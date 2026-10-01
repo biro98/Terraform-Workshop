@@ -115,9 +115,10 @@ Each Azure lab owns a different resource group. Never use the VM/platform group,
 ## Files included
 
 This folder contains starter Terraform files and the guided construction
-walkthrough. The instructor reveals the complete independent `solution/`
-reference on demand; it is not included in the starter checkout. Complete the
-guided checkpoints before comparing with it.
+walkthrough. The complete [reference solution](solution/README.md), including
+optional provider-mocked tests, is published in `solution/` as an independent
+Terraform root/state. Complete the guided checkpoints before comparing with it;
+never deploy the starter and solution into the same resource group.
 
 ## Tasks the student must perform
 
@@ -125,7 +126,7 @@ guided checkpoints before comparing with it.
 2. Keep credentials and subscription IDs out of code.
 3. Use typed hub and spoke subnet maps, locals, and `for_each`; do not duplicate subnet or NSG blocks.
 4. Pin AzureRM and AVM versions and use AVM `0.22.2` for both VNets and their subnets.
-5. Create an NSG per spoke subnet. Allow inbound TCP 443 to the application subnet only from `management_cidr`.
+5. Create an NSG per spoke subnet. Add a custom inbound TCP 443 rule from `management_cidr` only to the application NSG; Azure's built-in rules remain.
 6. Create a spoke route table with `0.0.0.0/0` using `VirtualAppliance` and the configured hub appliance IP. Associate it only when `route_via_hub` is true.
 7. Disable private endpoint network policies only on the private endpoint subnet, which must not receive the simulated default route.
 8. Create bidirectional VNet peering with virtual network access and forwarded traffic enabled.
@@ -171,7 +172,7 @@ Plan-review checklist:
 - Hub and spoke address spaces do not overlap.
 - One dedicated resource group is created and owned by this state; all regional resources use its location.
 - Hub has two subnets; spoke has four.
-- Four spoke NSGs exist, but only application permits management TCP 443.
+- Four spoke NSGs exist, but only application receives the custom management TCP 443 rule. Built-in NSG rules still apply.
 - The route table is absent from the private endpoint and hub subnets.
 - Two peerings and two DNS links are present.
 - No firewall, NVA, gateway, AKS cluster, public IP, or credential is created.

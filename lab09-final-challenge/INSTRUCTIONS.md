@@ -22,6 +22,7 @@ From the repository root in PowerShell, enter the lab folder itself, which is th
 
 ```powershell
 Set-Location .\lab09-final-challenge
+$labRoot = (Get-Location).Path
 if (-not (Test-Path .\terraform.tfvars)) {
   Copy-Item .\terraform.tfvars.example .\terraform.tfvars
 }
@@ -33,7 +34,12 @@ On the **workshop VM**, run in this same terminal:
 ```powershell
 & 'C:\Program Files\TerraformWorkshop\Connect-WorkshopAzure.ps1'
 az account show --output table
+Set-Location $labRoot
 ```
+
+The helper changes the working directory to `C:\Workshop`; the last command
+returns to the Lab 09 directory captured above. Run subsequent Terraform commands
+from that directory, not from `C:\Workshop`.
 
 Laptop users must instead follow [workstation authentication](../common/azure-authentication.md#running-without-the-workshop-vm); do not use VM managed identity locally.
 

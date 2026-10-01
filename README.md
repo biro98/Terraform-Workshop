@@ -128,7 +128,7 @@ If retaining an existing deployment, review its actual state and ownership with 
 ## Repository layout
 
 - `lab01` through `lab10`, including focused Lab 02A and optional Lab 10: student exercises and independent Terraform roots
-- Reference solutions for Labs 01, 02, 02A, 03, 04, 05, 06, 07 and 08 are published. Solutions for Labs 09 and 10 may be supplied locally by the instructor. Use the starter instructions first; each solution is an independent Terraform root/state, not an extension of the starter.
+- Reference solutions for Labs 01, 02, 02A, 03, 04, 05, 06, 07, 08 and 09 are published. The Lab 10 solution may be supplied locally by the instructor. Use the starter instructions first; each solution is an independent Terraform root/state, not an extension of the starter.
 - `common/`: optional reading only; no lab depends on it
 
 Lab 02A is a no-cost Terraform language exercise using `terraform console` and the built-in `terraform_data` resource. Labs 08 and 09 are designed for a network platform team. Lab 08 introduces composition between a pinned Azure Verified Module and root-owned security controls. Lab 09 applies the pattern to AVM-managed hub and spoke VNets, bidirectional peering, subnet NSGs, centralized route intent, and shared private DNS without deploying AKS or a paid network appliance.

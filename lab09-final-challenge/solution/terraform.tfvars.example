@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2026 biro98
+# SPDX-License-Identifier: MIT
+
+resource_group_name      = "rg-tf-lab09-solution-u01"
+location                 = "swedencentral"
+unique_suffix            = "solution-u01"
+hub_address_space        = ["10.50.0.0/16"]
+spoke_address_space      = ["10.60.0.0/16"]
+management_cidr          = "203.0.113.10/32"
+hub_virtual_appliance_ip = "10.50.1.4"
+private_dns_zone         = "privatelink.blob.core.windows.net"
+tags = {
+  environment = "training"
+  managed_by  = "terraform"
+}
+hub_subnets = {
+  shared_services = { address_prefix = "10.50.1.0/24" }
+  management      = { address_prefix = "10.50.2.0/24" }
+}
+spoke_subnets = {
+  application       = { address_prefix = "10.60.1.0/24", private_endpoint = false, route_via_hub = true }
+  integration       = { address_prefix = "10.60.2.0/24", private_endpoint = false, route_via_hub = true }
+  data              = { address_prefix = "10.60.3.0/24", private_endpoint = false, route_via_hub = true }
+  private_endpoints = { address_prefix = "10.60.4.0/24", private_endpoint = true, route_via_hub = false }
+}
