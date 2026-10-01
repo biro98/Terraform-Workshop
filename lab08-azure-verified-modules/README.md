@@ -81,9 +81,11 @@ Each Azure lab owns a different resource group. Never use the VM/platform group,
 ## Files included
 
 The standard files contain the resource group and TODOs for security, the AVM call,
-and outputs. The guided instructions explain how to complete them. The instructor
-reveals `solution/` on demand; it is not included in the starter checkout. The
-walkthrough and reference use AVM release `0.22.2`.
+and outputs. The guided instructions explain how to complete them. A complete
+[reference solution](solution/README.md), including optional provider-mocked
+tests, is published separately in `solution/`. Complete the starter first; the
+solution is an independent Terraform root/state. The walkthrough and reference
+use AVM release `0.22.2`.
 
 ## Tasks
 
