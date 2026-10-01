@@ -24,7 +24,7 @@ Get-Location
 
 Personalize `resource_group_name = "rg-tf-lab09-solution-u01"` and matching `unique_suffix = "solution-u01"`; the example/default region is `swedencentral`. Use an approved region. Keep the non-overlapping hub/spoke ranges and subnet flags. The management example `203.0.113.10/32` is documentation-only; choose an approved scoped CIDR, never an unrestricted source.
 
-The group must be new and dedicated to this state, separate from starter, other labs, and VM/platform groups. A suffix cannot isolate the canonical `privatelink.blob.core.windows.net` zone inside a shared group. Existing private inputs remain untouched; deliberately supply the new group input. With old state, stop, back it up securely, and coordinate migration before apply/destroy. `moved` blocks preserve former module/NSG addresses, not physical names: corrected subnet/NSG names and group/location changes can still replace resources. Do not import a shared group, remove state blindly, or reuse an old plan.
+The group must be new and dedicated to this state, separate from starter, other labs, and VM/platform groups. A suffix cannot isolate the canonical `privatelink.blob.core.windows.net` zone inside a shared group. Existing private inputs remain untouched; deliberately supply the new group input. This reference targets fresh deployments and does not migrate legacy Terraform addresses automatically. With old state, stop, back it up securely, and coordinate migration before apply/destroy. Name and group/location changes can still replace resources. Do not import a shared group, remove state blindly, or reuse an old plan.
 
 On the workshop VM:
 
@@ -65,8 +65,7 @@ Every external provider is mocked, while both real AVM instances and their subne
 
 ### Reference implementation differences
 
-The reference uses locals for repeated names and retains migration `moved` blocks
-for older reference states. Its rule, route, peering and DNS-link names differ
+The reference uses locals for repeated names. Its rule, route, peering and DNS-link names differ
 slightly from the walkthrough, but its architecture, subnet policies and eight
 output names match. It also disables AVM telemetry and BGP route propagation
 explicitly and waits for both module instances before creating peerings.

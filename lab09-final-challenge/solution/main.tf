@@ -133,19 +133,3 @@ resource "azurerm_private_dns_zone_virtual_network_link" "this" {
   registration_enabled  = false
   tags                  = var.tags
 }
-
-# Retain address history; physical name changes still require plan review.
-moved {
-  from = module.hub_virtual_network
-  to   = module.hub
-}
-
-moved {
-  from = module.spoke_virtual_network
-  to   = module.spoke
-}
-
-moved {
-  from = azurerm_network_security_group.this
-  to   = azurerm_network_security_group.spoke
-}
